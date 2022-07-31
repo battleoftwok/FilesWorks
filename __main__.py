@@ -89,3 +89,5 @@ if __name__ == '__main__':
 
     # generate_files(number=10)
     run()
+
+    print(list(enumerate(os.listdir(CUR_DIR))))
