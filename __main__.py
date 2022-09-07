@@ -34,8 +34,10 @@ def parse(text: str):
     :param text: строка
     :return: разобранная строка
     """
-
-    return re.search(PARSE_PATTERN, text.replace("/", "-").replace(" ", "").lower())[0]
+    try:
+        return re.search(PARSE_PATTERN, text.replace("/", "-").replace(" ", "").lower())[0]
+    except Exception:
+        raise TypeError(f'По паттерну {PARSE_PATTERN} не найдено совпадений')
 
 
 def search_pair_files(cur_file_name: str):
@@ -89,5 +91,3 @@ if __name__ == '__main__':
 
     # generate_files(number=10)
     run()
-
-    print(list(enumerate(os.listdir(CUR_DIR))))
