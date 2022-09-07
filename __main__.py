@@ -5,7 +5,7 @@ import re
 
 
 ENCODING = 'utf-8'
-PARSE_PATTERN = r'[c|с]л. КБ/[отд|бр] +\..+\S'
+PARSE_PATTERN = r'[c|с]л.кб-[отд|бр]+\..+\S'
 CUR_DIR = os.path.abspath(os.curdir)
 NEW_FOLDER_NAME = "update"
 
@@ -19,7 +19,7 @@ def generate_files(number=5):
     """
     for i in range(number):
         txt_file = open(f'{i}.txt', 'w', encoding=ENCODING)
-        txt_file.write(f'Это имя должен иметь pdf-файл{i}')
+        txt_file.write(f'Это имя должен Сл. КБ/отд. иметь pdf-файл{i}')
 
         pdf_file = open(f'{i}.pdf', 'w', encoding=ENCODING)
 
@@ -89,5 +89,5 @@ def run():
 
 if __name__ == '__main__':
 
-    # generate_files(number=10)
+    # generate_files(number=4)
     run()
