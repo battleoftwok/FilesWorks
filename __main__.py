@@ -5,7 +5,7 @@ import re
 
 
 ENCODING = 'utf-8'
-PARSE_PATTERN = r'[c|с]л-кб.[отд|бр]+\..+\S'
+PARSE_PATTERN = r'[c|с]л. КБ/[отд|бр] +\..+\S'
 CUR_DIR = os.path.abspath(os.curdir)
 NEW_FOLDER_NAME = "update"
 
