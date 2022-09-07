@@ -1,13 +1,13 @@
-import sys
 from pathlib import Path
 import datetime
 import shutil
+import sys
 import os
 import re
 
+
 ENCODING = 'utf-8'
 PARSE_PATTERN = r'[c|с]л.кб-[отд|бр]+\..+\S'
-CUR_DIR = os.path.abspath(os.curdir)
 NEW_FOLDER_NAME = "update"
 
 
@@ -29,12 +29,12 @@ def parse(text: str):
 
 def search_pair_files():
     return map(lambda element: (element, Path(str(element.parent.joinpath(element.stem)) + '.txt')),
-               filter(lambda x: x.suffix == '.pdf', map(Path, os.listdir(CUR_DIR))))
+               filter(lambda x: x.suffix == '.pdf', map(Path, os.listdir('.'))))
 
 
 def run():
     now = datetime.datetime.now().strftime("%Y%m%d")
-    os.makedirs("update", exist_ok=True)
+    os.makedirs(NEW_FOLDER_NAME, exist_ok=True)
 
     for pdfs, txts in search_pair_files():
         with txts.open(encoding=ENCODING) as cur_file:
@@ -44,7 +44,7 @@ def run():
 
         if parse_result is not None:
             # Переименовать перемещённый файл:
-            shutil.move(pdfs, f"{CUR_DIR}/{NEW_FOLDER_NAME}/{now}_{parse_result}.pdf")
+            shutil.move(pdfs, f"./{NEW_FOLDER_NAME}/{now}_{parse_result}.pdf")
             # Удаление txt-файла:
             os.remove(txts)
         else:
@@ -52,5 +52,5 @@ def run():
 
 
 if __name__ == '__main__':
-    # generate_files(number=2)
+    # generate_files(number=500)
     run()
