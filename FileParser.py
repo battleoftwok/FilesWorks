@@ -14,7 +14,7 @@ NEW_FOLDER_NAME = "update"
 def generate_files(number=5):
     for i in range(number):
         txt_file = open(f'{i}.txt', 'w', encoding=ENCODING)
-        txt_file.write(f'Это имя должен Сл. КБ/отд. иметь pdf-файл{i}')
+        txt_file.write(f'Это имя должен Сл. КБ/отд. иметь pdf-файл{i}634\n34tg4hty6hnerbtse56va6565')
 
         pdf_file = open(f'{i}.pdf', 'w', encoding=ENCODING)
 
@@ -52,7 +52,7 @@ def run():
 
 
 if __name__ == '__main__':
-    # generate_files(number=500)
+    # generate_files(number=5)
     run()
 
-    input('Press Enter to continue...')
+    input('\nPress Enter to continue...')
