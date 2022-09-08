@@ -37,7 +37,7 @@ def run():
     os.makedirs(NEW_FOLDER_NAME, exist_ok=True)
 
     for pdfs, txts in search_pair_files():
-        with txts.open(encoding=ENCODING) as cur_file:
+        with txts.open('r', encoding=ENCODING) as cur_file:
             text_raw = cur_file.read()
 
         parse_result = parse(text_raw)
